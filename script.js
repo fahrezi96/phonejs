@@ -15,12 +15,7 @@ async function getContact() {
     const opts = { multiple: false };
     const contacts = await navigator.contacts.select(props, opts);
 
-    alert("try");
-
     if (contacts.length > 0) {
-      alert("length > 0");
-      alert(contacts[0].tel);
-
       const tel = String(contacts[0].tel);
 
       if (tel.startsWith("+62")) {
@@ -34,7 +29,7 @@ async function getContact() {
       phoneLabel.textContent = contacts[0].name;
     }
   } catch (error) {
-    alert("error", error);
+    alert(`Error fetching contact: ${error}`);
     console.error("Error fetching contact:", error);
   }
 }
