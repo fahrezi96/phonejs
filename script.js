@@ -1,8 +1,13 @@
 const phoneLabel = document.getElementById("label");
 const phoneInput = document.getElementById("phone");
 const getPhoneBtn = document.getElementById("getphone");
+const change = document.getElementById("change");
 
 getPhoneBtn.addEventListener("click", getContact);
+phoneInput.addEventListener("change", () => {
+  alert("updated");
+  change.textContent = "Updated!";
+});
 
 async function getContact() {
   if (!("contacts" in navigator && "ContactsManager" in window)) {
