@@ -28,7 +28,7 @@ async function getContact() {
       } else if (tel.startsWith("62")) {
         phoneInput.value = tel.replace("62", "0");
       } else {
-        phoneInput.value = tel;
+        phoneInput.value = "911";
       }
 
       phoneLabel.textContent = contacts[0].name;
