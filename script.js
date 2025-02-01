@@ -30,11 +30,15 @@ async function getContact() {
 }
 
 function handleSetNoHp(inputValue) {
+  alert("inputValue", inputValue);
   if (inputValue.startsWith("+62")) {
+    alert("+62", inputValue.startsWith("+62"));
     return inputValue.replace("+62", "0");
   } else if (inputValue.startsWith("62")) {
+    alert("62", inputValue.startsWith("+62"));
     return inputValue.replace("62", "0");
   } else {
+    alert("return inputValue", inputValue);
     return inputValue;
   }
 }
