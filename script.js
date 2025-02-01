@@ -23,3 +23,13 @@ async function getContact() {
     console.error("Error fetching contact:", error);
   }
 }
+
+function handleSetNoHp(inputValue) {
+  if (inputValue.startsWith("+62")) {
+    return inputValue.replace("+62", "0");
+  } else if (inputValue.startsWith("62")) {
+    return inputValue.replace("62", "0");
+  } else {
+    return inputValue;
+  }
+}
