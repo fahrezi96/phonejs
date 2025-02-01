@@ -21,26 +21,20 @@ async function getContact() {
       alert("length > 0");
       alert(contacts[0].tel);
 
-      // phoneInput.value = handleSetNoHp(String(contacts[0].tel));
-      phoneInput.value = contacts[0].tel;
+      const tel = String(contacts[0].tel);
+
+      if (tel.startsWith("+62")) {
+        phoneInput.value = tel.replace("+62", "0");
+      } else if (tel.startsWith("62")) {
+        phoneInput.value = tel.replace("62", "0");
+      } else {
+        phoneInput.value = tel;
+      }
+
       phoneLabel.textContent = contacts[0].name;
     }
   } catch (error) {
     alert("error", error);
     console.error("Error fetching contact:", error);
-  }
-}
-
-function handleSetNoHp(inputValue) {
-  alert("inputValue", inputValue);
-  if (inputValue.startsWith("+62")) {
-    alert("+62", inputValue.startsWith("+62"));
-    return inputValue.replace("+62", "0");
-  } else if (inputValue.startsWith("62")) {
-    alert("62", inputValue.startsWith("+62"));
-    return inputValue.replace("62", "0");
-  } else {
-    alert("return inputValue", inputValue);
-    return inputValue;
   }
 }
