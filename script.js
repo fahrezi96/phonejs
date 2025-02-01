@@ -15,11 +15,16 @@ async function getContact() {
     const opts = { multiple: false };
     const contacts = await navigator.contacts.select(props, opts);
 
+    alert("try");
+
     if (contacts.length > 0) {
+      alert("length > 0");
+
       phoneInput.value = handleSetNoHp(contacts[0].tel);
       phoneLabel.textContent = contacts[0].name;
     }
   } catch (error) {
+    alert("error", error);
     console.error("Error fetching contact:", error);
   }
 }
