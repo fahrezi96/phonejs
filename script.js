@@ -9,7 +9,7 @@ phoneInput.addEventListener("change", () => {
   change.textContent = "Updated!";
 });
 
-async function getContact() {
+function getContact() {
   if (!("contacts" in navigator && "ContactsManager" in window)) {
     alert("Contacts API not supported on this browser.");
     return;
@@ -18,7 +18,7 @@ async function getContact() {
   try {
     const props = ["name", "tel"];
     const opts = { multiple: false };
-    const contacts = await navigator.contacts.select(props, opts);
+    const contacts = navigator.contacts.select(props, opts);
 
     if (contacts.length > 0) {
       const tel = String(contacts[0].tel).replace(/[^a-zA-Z0-9]/g, "");
