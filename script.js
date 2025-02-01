@@ -16,14 +16,12 @@ async function getContact() {
     const contacts = await navigator.contacts.select(props, opts);
 
     if (contacts.length > 0) {
-      const tel = String(contacts[0].tel);
+      const tel = String(contacts[0].tel).replace(/[^a-zA-Z0-9]/g, "");
 
-      if (tel.startsWith("+62")) {
-        phoneInput.value = tel.replace("+62", "0");
-      } else if (tel.startsWith("62")) {
+      if (tel.startsWith("62")) {
         phoneInput.value = tel.replace("62", "0");
       } else {
-        phoneInput.value = "911";
+        phoneInput.value = tel;
       }
 
       phoneLabel.textContent = contacts[0].name;
