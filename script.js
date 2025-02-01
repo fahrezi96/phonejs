@@ -20,7 +20,7 @@ async function getContact() {
     if (contacts.length > 0) {
       alert("length > 0");
 
-      phoneInput.value = handleSetNoHp(contacts[0].tel);
+      phoneInput.value = handleSetNoHp(String(contacts[0].tel));
       phoneLabel.textContent = contacts[0].name;
     }
   } catch (error) {
