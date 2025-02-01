@@ -16,7 +16,7 @@ async function getContact() {
     const contacts = await navigator.contacts.select(props, opts);
 
     if (contacts.length > 0) {
-      phoneInput.value = contacts[0].tel;
+      phoneInput.value = handleSetNoHp(contacts[0].tel);
       phoneLabel.textContent = contacts[0].name;
     }
   } catch (error) {
